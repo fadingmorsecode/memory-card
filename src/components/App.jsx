@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Gameboard from './Gameboard';
 
 function PlayInfo({ onClick }) {
   return (
