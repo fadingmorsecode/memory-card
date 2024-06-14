@@ -122,7 +122,9 @@ h1 span:nth-child(2) {
 }
 
 .instructions-container button {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   flex-shrink: 0;
   background-color: black;
   border-radius: 50%;
