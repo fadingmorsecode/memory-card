@@ -25,7 +25,6 @@ export default function Gameboard() {
 
   return (
     <div>
-      <p>Test</p>
       {pokemon.map((pokemon) => {
         return (
           <div key={pokemon.id} onClick={randomizePokemon}>

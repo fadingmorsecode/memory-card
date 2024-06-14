@@ -17,29 +17,16 @@ const pokemon = [
 
 export default async function getPokemonData() {
   const promises = pokemon.map(async (pokemon) => {
-    const pokeName = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemon}`,
-      {
-        mode: 'cors',
-      }
-    )
+    const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
+      mode: 'cors',
+    })
       .then((response) => response.json())
       .then((response) => {
-        return response.name;
+        return response;
       })
       .catch((err) => console.log(`Hey! An error: ${err}`));
-    const pokeImg = await fetch(
-      `https://pokeapi.co/api/v2/pokemon/${pokemon}`,
-      {
-        mode: 'cors',
-      }
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        return response.sprites.front_default;
-      })
-      .catch((err) => console.log(`Hey! An error: ${err}`));
-    return { name: pokeName, img: pokeImg, id: uuidv4() };
+
+    return { name: data.name, img: data.sprites.front_default, id: uuidv4() };
   });
   const pokemonData = await Promise.all(promises);
   return pokemonData;
