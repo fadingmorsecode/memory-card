@@ -5,8 +5,8 @@ function PlayInfo({ onClick }) {
   return (
     <div>
       <p>
-        PokéShuffle tests your memory. Your objective is to click on each card
-        only once. Can you remember which cards you&apos;ve already clicked?
+        PokéShuffle tests your memory. Your objective is to click on each of the
+        12 cards only once. Can you earn a high score of 12?
       </p>
       <button onClick={onClick}>Close</button>
     </div>
