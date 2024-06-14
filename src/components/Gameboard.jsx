@@ -19,10 +19,11 @@ export default function Gameboard({ handleCardClick }) {
   }
 
   return (
-    <div>
+    <div className='cards-container'>
       {pokemon.map((pokemon) => {
         return (
           <div
+            className='card'
             key={pokemon.id}
             onClick={() => {
               randomizePokemon();
