@@ -16,6 +16,7 @@ function PlayInfo({ onClick }) {
 export default function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
+  const [clickedCards, setClickedCards] = useState([]);
   const [infoIsOpen, setInfoIsOpen] = useState(false);
 
   function handleCloseClick() {
@@ -24,6 +25,23 @@ export default function App() {
 
   function handleOpenClick() {
     setInfoIsOpen(true);
+  }
+
+  function endRound(prevScore) {
+    setHighScore(prevScore);
+    setScore(0);
+    setClickedCards([]);
+  }
+
+  function handleCardClick(id) {
+    setClickedCards([...clickedCards, id]);
+    if (score + 1 === 12) {
+      endRound(score + 1);
+    } else if (clickedCards.includes(id)) {
+      endRound(score);
+    } else {
+      setScore(score + 1);
+    }
   }
 
   return (
@@ -38,7 +56,7 @@ export default function App() {
         {infoIsOpen && <PlayInfo onClick={handleCloseClick} />}
       </div>
       <main>
-        <Gameboard />
+        <Gameboard handleCardClick={handleCardClick} />
       </main>
       <footer>Created by FadingMorseCode</footer>
     </div>

@@ -1,19 +1,14 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
 import arrayShuffle from 'array-shuffle';
-import getPokemonData from './pokemonData';
+import fetchPokemons from './pokemonData';
 
-export default function Gameboard() {
+export default function Gameboard({ handleCardClick }) {
   const [pokemon, setPokemon] = useState([]);
 
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const pokeData = await getPokemonData();
-        setPokemon(pokeData);
-      } catch (err) {
-        console.log(err);
-      }
+    function fetchData() {
+      fetchPokemons().then(arrayShuffle).then(setPokemon);
     }
     fetchData();
   }, []);
@@ -27,7 +22,13 @@ export default function Gameboard() {
     <div>
       {pokemon.map((pokemon) => {
         return (
-          <div key={pokemon.id} onClick={randomizePokemon}>
+          <div
+            key={pokemon.id}
+            onClick={() => {
+              randomizePokemon();
+              handleCardClick(pokemon.id);
+            }}
+          >
             <img src={pokemon.img} />
             <p>{pokemon.name}</p>
           </div>

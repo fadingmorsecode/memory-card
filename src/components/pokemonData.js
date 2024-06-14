@@ -15,7 +15,7 @@ const pokemon = [
   'musharna',
 ];
 
-export default async function getPokemonData() {
+export default async function fetchPokemons() {
   const promises = pokemon.map(async (pokemon) => {
     const data = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
       mode: 'cors',
