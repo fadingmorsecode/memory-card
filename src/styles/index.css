@@ -60,6 +60,10 @@ body {
   background-color: #edf2f4;
 }
 
+h1 {
+  font-family: var(--wenkai);
+}
+
 h1 span:nth-child(1) {
   color: white;
 }
