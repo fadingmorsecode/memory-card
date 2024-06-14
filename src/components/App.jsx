@@ -28,7 +28,9 @@ export default function App() {
   }
 
   function endRound(prevScore) {
-    setHighScore(prevScore);
+    if (prevScore > highScore) {
+      setHighScore(prevScore);
+    }
     setScore(0);
     setClickedCards([]);
   }
