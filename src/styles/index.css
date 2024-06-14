@@ -140,8 +140,9 @@ h1 span:nth-child(2) {
 .cards-container {
   display: grid;
   gap: 10px;
+  padding: 20px;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 150px);
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 }
 
 .card {
@@ -162,10 +163,72 @@ h1 span:nth-child(2) {
 
 footer {
   background-color: #1a1b41;
-  margin-top: 15px;
+  margin-top: 30px;
   color: white;
   text-align: center;
   font-size: 1.4rem;
   font-family: var(--wenkai);
   padding: 10px;
+}
+
+main {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 600px) {
+  header {
+    font-size: 1.3rem;
+  }
+
+  .score-containers {
+    font-size: 1.2rem;
+  }
+
+  .info-open-btn {
+    font-size: 1.3rem;
+  }
+
+  .instructions-container {
+    max-width: 500px;
+  }
+
+  .instructions-container p {
+    font-size: 1.2rem;
+  }
+
+  .instructions-container button {
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  header {
+    font-size: 1.5rem;
+  }
+
+  .score-containers {
+    font-size: 1.4rem;
+  }
+
+  .info-open-btn {
+    font-size: 1.5rem;
+  }
+
+  .instructions-container {
+    max-width: 600px;
+  }
+
+  .instructions-container p {
+    font-size: 1.3rem;
+  }
+
+  .card {
+    font-size: 1.5rem;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
 }
